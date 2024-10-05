@@ -1,26 +1,45 @@
-import Navbar from '../components/Navbar'
-import Link from "next/link";
+import '../styles/globals.css'
+import React, { useState } from 'react';
+import MonsterCard from '../components/MonsterCard';
+import {Monster} from "@/interfaces/Monster";
 
-const HomePage = () => {
+
+const App: React.FC = () => {
+    const [monster, setMonster] = useState<Monster | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleSearch = async (searchTerm: string) => {
+        setLoading(true);
+        setError(null);
+        setMonster(null);
+
+        // You can choose to search for spells, monsters, or both based on your needs.
+        // Here, we'll implement searching for monsters only.
+        try {
+            const monsterData = await fetchMonster(searchTerm);
+            setMonster(monsterData);
+        } catch (err) {
+            setError('Monster not found or an error occurred.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <div>
-            <Navbar />
-            <div className="container mx-auto text-center py-20">
-                <h1 className="text-4xl font-bold text-gray-800">
-                    Welcome to the D&D 5e Compendium
-                </h1>
-                <p className="mt-4 text-lg text-gray-600">
-                    Explore a world of fantasy that is only limited by your imagination!
-                </p>
-                <div className="mt-8 space-x-4">
-                    <Link href="/monsters" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Monsters </Link>
-                    <Link href="/equipment" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Equipment</Link>
-                    <Link href="/races" className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Races</Link>
-                    <Link href="/spells" className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">Spells</Link>
-                </div>
-            </div>
+        <div className="App">
+            <h1>D&D 5e Encyclopedia</h1>
+            <SearchBar onSearch={handleSearch} />
+            {loading && <p>Loading...</p>}
+            {error && <p className="error">{error}</p>}
+            {monster && (
+                <ul className="card-list">
+                    <MonsterCard monster={monster} />
+                </ul>
+            )}
+            {/* add SpellCard here similarly */}
         </div>
     );
 };
 
-export default HomePage;
+export default App;

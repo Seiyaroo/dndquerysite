@@ -1,3 +1,101 @@
+/* /styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global custom styles */
+body {
+    font-family: 'Inter', sans-serif; /* Example font */
+    background-color: #f9fafb;
+    color: #111827;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Custom container class for consistent spacing */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.25rem; /* Tailwind equivalent: text-4xl */
+}
+
+h2 {
+    font-size: 1.875rem; /* Tailwind equivalent: text-3xl */
+}
+
+h3 {
+    font-size: 1.5rem; /* Tailwind equivalent: text-2xl */
+}
+
+p {
+    font-size: 1rem; /* Tailwind equivalent: text-base */
+    line-height: 1.6;
+}
+
+/* Additional styles for small text and links */
+.small-text {
+    font-size: 0.875rem; /* Tailwind equivalent: text-sm */
+}
+
+.lead-text {
+    font-size: 1.125rem; /* Tailwind equivalent: text-lg */
+    color: #4b5563;
+}
+
+/* Buttons */
+.button, button {
+    padding: 0.5rem 1rem;
+    background-color: #4f46e5; /* Indigo */
+    color: white;
+    border: none;
+    border-radius: 0.375rem; /* Tailwind equivalent: rounded-md */
+    transition: background-color 0.3s;
+}
+
+.button:hover, button:hover {
+    background-color: #4338ca; /* Darker indigo */
+}
+
+/* Form inputs */
+.input, input {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db; /* Light gray */
+    border-radius: 0.375rem; /* Tailwind equivalent: rounded-md */
+}
+
+.input:focus, input:focus {
+    outline: none;
+    border-color: #2563eb; /* Blue */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Light blue shadow */
+}
+
+/* Layouts */
+.header {
+    background-color: #1f2937; /* Dark gray */
+    padding: 1rem 0;
+    color: white;
+}
+
+.footer {
+    background-color: #f3f4f6; /* Light gray */
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.875rem; /* Tailwind equivalent: text-sm */
+}
