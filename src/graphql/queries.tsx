@@ -4,10 +4,8 @@ import { gql } from 'graphql-request';
 export const GET_ALL_MONSTERS = gql`
     query GetAllMonsters {
         monsters {
-            id
             name
-            type
-            description
+            index
         }
     }
 `;
