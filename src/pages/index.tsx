@@ -1,12 +1,16 @@
 import '../styles/globals.css'
-import React, { useState } from 'react';
-import MonsterCard from '../components/MonsterCard';
-import {Monster} from "@/interfaces/Monster";
-import Monsters from "@/pages/monsters";
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {AppProps} from "next/app";
 
+const queryClient = new QueryClient();
 
-const App: () => void = () => {
-   <Monsters/>
-};
+function App({ Component, pageProps }: AppProps) {
+   return (
+       <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+       </QueryClientProvider>
+   )
+}
 
 export default App;
