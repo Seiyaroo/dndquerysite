@@ -6,6 +6,11 @@ export const GET_ALL_MONSTERS = gql`
         monsters {
             name
             index
+            challenge_rating
+            image
+            armor_class {
+                value
+            }
         }
     }
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMonsters } from '@/hooks/useMonsters';
-import MonsterCard from '@/components/MonsterCard'; // Assuming you have a MonsterCard component
+import MonsterCard from '@/components/MonsterCard';
 
 const MonstersPage: React.FC = () => {
     const { data: monsters, isLoading, error } = useMonsters();
