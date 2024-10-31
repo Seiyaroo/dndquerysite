@@ -26,7 +26,7 @@ export interface Monster {
     name: string;
     challenge_rating: number;
     image: string;
-    armor_class: ArmorClass;
+    armor_class?: ArmorClass | null;
 }
 
 export interface GetAllMonstersResponse {
