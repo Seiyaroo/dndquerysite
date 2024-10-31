@@ -11,8 +11,9 @@ export const GET_ALL_MONSTERS = gql`
             armor_class {
                 value
             }
+            hit_points
         }
     }
 `;
 
-export const GET_ALL_MONS_MONS = gql``
+// export const GET_ALL_MONS_MONS = gql``

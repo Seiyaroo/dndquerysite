@@ -18,7 +18,7 @@
 // }
 
 export interface ArmorClass {
-    value: number;
+    value: [number];
 }
 
 export interface Monster {
@@ -27,6 +27,7 @@ export interface Monster {
     challenge_rating: number;
     image: string;
     armor_class?: ArmorClass | null;
+    hit_points: number;
 }
 
 export interface GetAllMonstersResponse {
